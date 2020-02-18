@@ -118,8 +118,8 @@ class Watchdog(WatchdogBase):
         if wd_timer_offset != timer_offset:
             # Setting 5th to 7th bits
             # value from timer_offset
-            self.disarm()
             self._set_reg_val(reg_val | (timer_offset << 4))
+            self.disarm()
 
         if self.is_armed():
             # Setting last bit to WD Timer punch
